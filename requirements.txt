@@ -1,0 +1,3 @@
+pgn2data
+chess
+python-lichess
