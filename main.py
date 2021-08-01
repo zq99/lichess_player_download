@@ -14,7 +14,7 @@ _names_list = ["thibault"]
 _output_csv_name = "pgn_games"
 
 
-class FileLoaderThread(Thread):
+class FileDownloaderThread(Thread):
     """
     Files are downloaded from Lichess at the same time
     """
@@ -45,7 +45,7 @@ def download_files():
     # Goes through all the listed lichess ids and starts the downloads
     thread_list = []
     for name in _names_list:
-        th = FileLoaderThread(name)
+        th = FileDownloaderThread(name)
         thread_list.append(th)
         th.start()
     for th in thread_list:
