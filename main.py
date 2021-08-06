@@ -105,8 +105,10 @@ def add_extra():
                         writer.writerow(row + ["group_name_color", "group_name_result"])
                     else:
                         w = row[6]
+                        b = row[7]
+                        winner = row[15]
                         c = "white" if w in _names_list else 'black'
-                        r = "won" if row[15] in _names_list else "lost"
+                        r = "won" if winner in _names_list else ("draw" if (winner == "draw" and not (winner == w or winner == b)) else "lost")
                         writer.writerow(row + [c, r])
 
         if os.path.isfile(file_dest):
